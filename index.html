@@ -818,6 +818,28 @@
              PROJECTS SECTION
         ========================================== -->
 
+
+
+
+
+        <!-- =========================================
+             PROJECT IMAGE LIGHTBOX
+        ========================================== -->
+        
+        <div class="image-lightbox" id="imageLightbox">
+        
+            <span class="lightbox-close" id="lightboxClose">
+                &times;
+            </span>
+        
+            <img id="lightboxImage" src="" alt="Project Preview">
+        
+        </div>
+
+
+
+
+
         <section id="projects" class="projects section">
 
             <div class="container">
@@ -860,7 +882,7 @@
 
                         <div class="project-image">
 
-                            <img src="assets/images/project-1.png" alt="ASP.NET Core project screenshot" loading="lazy">
+                            <img src="assets/images/Webnest.jpg" alt="ASP.NET Core project screenshot" loading="lazy">
 
 
                         </div>
@@ -869,17 +891,17 @@
                         <div class="project-content">
 
                             <p class="project-type">
-                                ASP.NET CORE
+                                FULL-STACK WEB DEVELOPMENT
                             </p>
 
                             <h3>
-                                Employee Data Management System
+                                WebNest Admin Dashboard
                             </h3>
-
+                            
                             <p>
-                                A database-driven application implementing
-                                CRUD operations for employee data using
-                                ASP.NET Core, C# and SQL Server.
+                                A secure web-based admin portal for managing business data,
+                                users, products and system operations using ASP.NET Core,
+                                C# and SQL Server.
                             </p>
 
 
@@ -914,7 +936,7 @@
 
                         <div class="project-image">
 
-                            <img src="assets/images/project-2.png" alt="RESTful API project screenshot" loading="lazy">
+                            <img src="assets/images/Admin Dash.jpg" alt="RESTful API project screenshot" loading="lazy">
 
                         </div>
 
@@ -922,18 +944,18 @@
                         <div class="project-content">
 
                             <p class="project-type">
-                                REST API
+                                Web Development Project
                             </p>
-
+                            
                             <h3>
-                                Employee RESTful API
+                                Admin Dashboard UI
                             </h3>
-
+                            
                             <p>
-                                A RESTful API designed to provide
-                                structured employee data through
-                                backend endpoints and database
-                                integration.
+                                A full-stack admin dashboard for product management,
+                                featuring secure user authentication, CRUD operations,
+                                product management, and error handling using ASP.NET Core,
+                                C# and SQL Server.
                             </p>
 
 
@@ -968,7 +990,7 @@
 
                         <div class="project-image">
 
-                            <img src="assets/images/project-3.png" alt="Web development project screenshot"
+                            <img src="assets/images/HR dashboard.jpg" alt="Web development project screenshot"
                                 loading="lazy">
 
                         </div>
@@ -977,17 +999,17 @@
                         <div class="project-content">
 
                             <p class="project-type">
-                                WEB DEVELOPMENT
+                                HR MANAGEMENT SYSTEM
                             </p>
-
+                            
                             <h3>
-                                Portfolio Website
+                                NexHR
                             </h3>
-
+                            
                             <p>
-                                A responsive personal developer portfolio
-                                designed to showcase professional
-                                experience, technical skills and projects.
+                                A web-based HR management system designed to manage
+                                employee data, including employee records, departments,
+                                companies, designations, salaries and employment types.
                             </p>
 
 
@@ -1234,11 +1256,12 @@
                         </h3>
     
                         <p>
-                            Completed a software development
-                            internship at IBS Technologies Pvt Ltd,
-                            demonstrating dedication, professionalism,
-                            and strong commitment to assigned tasks
-                            and responsibilities.
+                            Completed an ASP.NET Core development internship,
+                            gaining hands-on experience with C#, Microsoft SQL Server,
+                            MVC architecture, Entity Framework Core, and CRUD operations.
+                            Developed database-driven web applications and implemented
+                            create, read, update, and delete functionality using
+                            ASP.NET Core MVC.
                         </p>
     
                         <div class="certificate-meta">
@@ -1650,14 +1673,67 @@
 <script src="https://cdn.jsdelivr.net/npm/[email protected]/dist/jspdf.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/[email protected]/dist/email.min.js"></script>
 
-<div id="formPopup" class="form-popup-overlay">
-    <div class="form-popup">
-        <div class="form-popup-icon" id="popupIcon"></div>
-        <h3 id="popupTitle">Message Sent</h3>
-        <p id="popupText">Your message has been sent successfully.</p>
-        <button type="button" class="btn btn-primary" id="popupCloseBtn">Close</button>
-    </div>
-</div>
+
+
+
+<script>
+    const projectImages = document.querySelectorAll(".project-image img");
+    const lightbox = document.getElementById("imageLightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxClose = document.getElementById("lightboxClose");
+
+    projectImages.forEach(function (image) {
+
+        image.addEventListener("click", function () {
+
+            lightboxImage.src = this.src;
+            lightboxImage.alt = this.alt;
+
+            lightbox.classList.add("active");
+
+            document.body.style.overflow = "hidden";
+        });
+
+    });
+
+
+    // Close using X button
+    lightboxClose.addEventListener("click", function () {
+
+        lightbox.classList.remove("active");
+
+        document.body.style.overflow = "";
+    });
+
+
+    // Close by clicking outside the image
+    lightbox.addEventListener("click", function (event) {
+
+        if (event.target === lightbox) {
+
+            lightbox.classList.remove("active");
+
+            document.body.style.overflow = "";
+        }
+
+    });
+
+
+    // Close with ESC key
+    document.addEventListener("keydown", function (event) {
+
+        if (event.key === "Escape") {
+
+            lightbox.classList.remove("active");
+
+            document.body.style.overflow = "";
+        }
+
+    });
+</script>
+
+
+
 
 
 </body>

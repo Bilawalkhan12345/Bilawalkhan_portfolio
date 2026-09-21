@@ -2208,3 +2208,58 @@ textarea:focus-visible {
 }
 
 }
+
+
+
+
+
+
+
+/* =========================================
+   PROJECT IMAGE LIGHTBOX
+========================================= */
+
+.project-image {
+    cursor: pointer;
+}
+
+.image-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.92);
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.image-lightbox.active {
+    display: flex;
+}
+
+.image-lightbox img {
+    max-width: 95%;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 300;
+    cursor: pointer;
+    line-height: 1;
+    z-index: 10000;
+}
+
+.lightbox-close:hover {
+    opacity: 0.7;
+}
